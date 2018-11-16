@@ -15,7 +15,16 @@
  */
 function filterEvens(numbers) {
 	// your code goes here!
+	
+  
+ 	const x = numbers.filter(iter => { 
+  	return iter % 2 == 0 })
+  
+  	return x
+  
 }
+	
+
 
 /**
  * Receives an array of numbers
@@ -30,6 +39,11 @@ function filterEvens(numbers) {
  */
 function filterOdds(numbers) {
 	// your code goes here!
+	
+	const x = numbers.filter(iter => { 
+  	return iter % 2 !== 0 })
+  
+  	return x
 }
 
 /**
@@ -44,6 +58,14 @@ function filterOdds(numbers) {
  */
 function sumOdds(numbers) {
 	// your code goes here!
+	
+	let newArray = filterOdds(numbers)
+ 	let sum =0
+ 	const x = newArray.reduce((iter,value) => {
+     return iter + value})
+  
+ 	 return x
+	
 }
 
 
@@ -66,6 +88,11 @@ let states = ['Alabama','Alaska','American Samoa','Arizona','Arkansas','Californ
  */
 function stateNamesLongerThan(minLength) {
 	// your code goes here!
+	const x = states.filter( iter => {
+    return iter.length > minLength
+    
+  })
+  return x
 }
 
 /**
@@ -79,7 +106,7 @@ function stateNamesLongerThan(minLength) {
  *
  */
 function numberOfStateNamesLongerThan(minLength) {
-	// your code goes here!
+	  return stateNamesLongerThan(minLength).length
 }
 
 /**
@@ -107,8 +134,17 @@ function numberOfStateNamesLongerThan(minLength) {
  *				  'Wyoming' ]
  *
  */
-function replaceStateNames(newName, len) {
+function replaceStateNames(newName, len) 
+{
 	// your code goes here!
+	
+	  return states.map(state => 
+	  {
+    	if ( state.length === len)
+      	return newName
+    	else
+      	return state
+  	  })
 }
 
 /**
@@ -122,8 +158,38 @@ function replaceStateNames(newName, len) {
  *
  */
 function numberOfStateNamesContaining(subString) {
-	// your code goes here!
+	
+	let count = 0 
+  	states.map( state => {
+    
+    if ( state.includes(subString))
+      count++
+    
+  })
+  
+  return count
 }
+
+
+
+// BONUS: Do sumOdds() without using the filterOdds() function and without using a .filter() method.
+
+function sumOdds(numbers) {
+  let sum = 0
+  for ( i = 0 ; i < numbers.length ; i ++)
+    {
+      if ( numbers[i] %2 != 0 )
+        sum += numbers[i]
+    }
+  
+  return sum
+  
+}
+
+
+
+
+
 
 
 /**************************************************
@@ -166,4 +232,14 @@ let numbers = [153,67,9,34,7,67,342,7,34,8656,2,124,5,43];
 // console.log("NUMBER OF STATE NAMES CONTAININGa:");
 // console.log(occurances);
 
-// How can you know the number of states with names that contain multiple words?
+
+//===============================================================================
+//===============================================================================
+//How can you know the number of states with names that contain multiple words?
+// let occurances = numberOfStateNamesContaining(" ");
+//===============================================================================
+//===============================================================================
+
+
+
+
